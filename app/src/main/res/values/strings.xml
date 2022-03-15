@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Share A Meal</string>
+    <string name="no_results">Geen resultaten</string>
+    <string name="meals_loaded_toast">Maaltijden zijn opgehaald!</string>
+</resources>

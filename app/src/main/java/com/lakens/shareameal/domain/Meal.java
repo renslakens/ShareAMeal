@@ -47,9 +47,7 @@ public class Meal {
         return isActive;
     }
 
-    public boolean isVega() {
-        return isVega;
-    }
+    public boolean isVega() { return isVega; }
 
     public boolean isVegan() {
         return isVegan;
@@ -79,7 +77,5 @@ public class Meal {
         return allergenes;
     }
 
-    public Cook getCook() {
-        return cook;
-    }
+    public Cook getCook() { return cook; }
 }

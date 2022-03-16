@@ -38,12 +38,12 @@ public class FetchMeal extends AsyncTask<String, Void, String> {
         this.mContext = context;
         mMeals = new ArrayList<Meal>();
         mAdapter = new MealAdapter(context, mMeals);
-        Log.d(TAG, "Made Fetchmeal class");
+        Log.d(TAG, "Fetchmeal class gemaakt");
     }
 
     @Override
     protected String doInBackground(String... strings) {
-        Log.i(TAG, "Started doInBackground");
+        Log.i(TAG, "doInBackground gestart");
         return NetworkUtils.getMealInfo();
     }
 
@@ -53,7 +53,7 @@ public class FetchMeal extends AsyncTask<String, Void, String> {
             mMeals.clear();
             JSONObject obj = new JSONObject(jsonString);
             JSONArray mealArray = obj.getJSONArray("result");
-            Log.i(TAG, "Starting JSON operation");
+            Log.i(TAG, "JSON operation gestart");
             for (int i = 0; i < mealArray.length(); i++) {
                 JSONObject mealInfo = mealArray.getJSONObject(i);
 
@@ -107,7 +107,7 @@ public class FetchMeal extends AsyncTask<String, Void, String> {
     }
 
     public MealAdapter getAdapter() {
-        Log.d(TAG, "returned MealList Adapter");
+        Log.d(TAG, "returned MealAdapter");
         return mAdapter;
     }
 }

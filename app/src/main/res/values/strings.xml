@@ -2,4 +2,19 @@
     <string name="app_name">Share A Meal</string>
     <string name="no_results">Geen resultaten</string>
     <string name="meals_loaded_toast">Maaltijden zijn opgehaald!</string>
+    <string name="mealName">mealName</string>
+    <string name="mealDate">mealDate</string>
+    <string name="mealCity">mealCity</string>
+    <string name="mealPrice">mealPrice</string>
+    <string name="foodImageText">Image of meal</string>
+    <string name="cookName">Naam van Cook</string>
+    <string name="cookCity">City van Cook</string>
+    <string name="isVeganCheckmark">isVegan</string>
+    <string name="isVegaCheckmark">isVega</string>
+    <string name="mealDescription">Beschrijving maaltijd</string>
+    <string name="servedOn">Maaltijd geserveerd op:</string>
+    <string name="allergiën">Allergiën</string>
+    <string name="allergenicInfo">alle allergiën</string>
+    <string name="aanmelden_button">Aanmelden</string>
+    <string name="cookStreet">Straat van Cook</string>
 </resources>

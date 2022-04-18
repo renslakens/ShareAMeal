@@ -20,11 +20,13 @@ import com.lakens.shareameal.presentation.MealDetail;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
     // Globale attributen
     private final static String LOG_TAG = MealAdapter.class.getSimpleName();
     private ArrayList<Meal> mMeals;
+    private LinkedList<Meal> mMealList;
     private ImageView mImageView;
     private Context context;
     private LayoutInflater mInflater;
@@ -54,6 +56,11 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
     public int getItemCount() {
         Log.i(LOG_TAG, "Meals size: " + mMeals.size());
         return this.mMeals.size();
+    }
+
+    public void setMealList(LinkedList<Meal> mealList) {
+        this.mMealList = mealList;
+        notifyDataSetChanged();
     }
 
     // Koppeling tussen itemscherm in de RV, en de data in de AL<Meal>.

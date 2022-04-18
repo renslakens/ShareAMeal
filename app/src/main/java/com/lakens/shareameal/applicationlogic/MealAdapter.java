@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,14 +24,14 @@ import java.util.ArrayList;
 public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
     // Globale attributen
     private final static String LOG_TAG = MealAdapter.class.getSimpleName();
-    private ArrayList<Meal> meals;
+    private ArrayList<Meal> mMeals;
     private ImageView mImageView;
     private Context context;
     private LayoutInflater mInflater;
 
     // Constructor
-    public MealAdapter(Context context, ArrayList<Meal> mMeals) {
-        this.meals = meals;
+    public MealAdapter(Context context, ArrayList<Meal> meals) {
+        this.mMeals = meals;
         this.context = context;
         Log.i(LOG_TAG, "Meal list aangemaakt");
         //mInflater = LayoutInflater.from(context);
@@ -48,13 +47,13 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MealAdapter.ViewHolder holder, int position) {
         Log.d(LOG_TAG, "onBindViewHolder positie = " + position);
-        Meal meal = this.meals.get(position);
+        Meal meal = this.mMeals.get(position);
         holder.bindTo(meal);
     }
 
     public int getItemCount() {
-        Log.i(LOG_TAG, "Meals size: " + meals.size());
-        return this.meals.size();
+        Log.i(LOG_TAG, "Meals size: " + mMeals.size());
+        return this.mMeals.size();
     }
 
     // Koppeling tussen itemscherm in de RV, en de data in de AL<Meal>.
@@ -96,24 +95,24 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
 
         @Override
         public void onClick(View view) {
-            Meal meal = meals.get(getAdapterPosition());
+            Meal meal = mMeals.get(getAdapterPosition());
             Log.i(LOG_TAG, "Er is geklikt op: " + meal.getName());
-            Cook cook = meals.get(getAdapterPosition()).getCook();
+            Cook cook = mMeals.get(getAdapterPosition()).getCook();
             Intent foodPage = new Intent(context, MealDetail.class);
 
-            foodPage.putExtra("foodName", meal.getName());
+            foodPage.putExtra("mealName", meal.getName());
             foodPage.putExtra("foodPrice", meal.getPrice());
-            foodPage.putExtra("foodDescription", meal.getDescription());
-            foodPage.putExtra("foodDate", meal.getServeDate());
-            foodPage.putExtra("foodAllergies", meal.getAllergenes());
-            foodPage.putExtra("foodCook", cook.getName());
-            foodPage.putExtra("foodCity", cook.getCity());
-            foodPage.putExtra("foodStreet", cook.getStreet());
-            foodPage.putExtra("foodEmail", cook.getEmailAddress());
-            foodPage.putExtra("foodPhone", cook.getPhoneNumber());
-            foodPage.putExtra("image_resource", meal.getImageUrl());;
-            foodPage.putExtra("foodVega", meal.isVega());
-            foodPage.putExtra("foodVegan", meal.isVegan());
+            foodPage.putExtra("mealDescription", meal.getDescription());
+            foodPage.putExtra("mealDate", meal.getServeDate());
+            foodPage.putExtra("mealAllergyInfo", meal.getAllergenes());
+            foodPage.putExtra("cook", cook.getName());
+            foodPage.putExtra("cookCity", cook.getCity());
+            foodPage.putExtra("cookStreet", cook.getStreet());
+            foodPage.putExtra("cookEmail", cook.getEmailAddress());
+            foodPage.putExtra("cookPhone", cook.getPhoneNumber());
+            foodPage.putExtra("foodImage", meal.getImageUrl());;
+            foodPage.putExtra("isVega", meal.isVega());
+            foodPage.putExtra("isVegan", meal.isVegan());
             Log.v(LOG_TAG, "Made new activity");
             context.startActivity(foodPage);
             Log.v(LOG_TAG, "Started new activity");

@@ -30,10 +30,6 @@ public class FetchMeal extends AsyncTask<String, Void, String> {
     private final MealAdapter mAdapter;
     private final Context mContext;
 
-    private WeakReference<TextView> mTitleMeal;
-    private WeakReference<ImageButton> mImageMeal;
-    private Object MealAdapter;
-
     public FetchMeal(Context context) {
         this.mContext = context;
         mMeals = new ArrayList<Meal>();
@@ -100,7 +96,7 @@ public class FetchMeal extends AsyncTask<String, Void, String> {
 
         super.onPostExecute(jsonString);
         Toast.makeText(mContext,
-                mMeals.size() + mContext.getString(R.string.meals_loaded_toast),
+                mMeals.size() + mContext.getString(R.string.meals_geladen_toast),
                 Toast.LENGTH_SHORT)
                 .show();
         mAdapter.notifyDataSetChanged();

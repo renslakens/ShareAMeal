@@ -22,18 +22,19 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 
 public class FetchMeal extends AsyncTask<String, Void, String> {
     private final String TAG = FetchMeal.class.getSimpleName();
 
-    private ArrayList<Meal> mMeals;
-    private final MealAdapter mAdapter;
+    private LinkedList<Meal> mMeals;
+    private final MealList mAdapter;
     private final Context mContext;
 
     public FetchMeal(Context context) {
         this.mContext = context;
-        mMeals = new ArrayList<Meal>();
-        mAdapter = new MealAdapter(context, mMeals);
+        mMeals = new LinkedList<>();
+        mAdapter = new MealList(context, mMeals);
         Log.d(TAG, "Fetchmeal class gemaakt");
     }
 
@@ -102,7 +103,7 @@ public class FetchMeal extends AsyncTask<String, Void, String> {
         mAdapter.notifyDataSetChanged();
     }
 
-    public MealAdapter getAdapter() {
+    public MealList getAdapter() {
         Log.d(TAG, "returned MealAdapter");
         return mAdapter;
     }

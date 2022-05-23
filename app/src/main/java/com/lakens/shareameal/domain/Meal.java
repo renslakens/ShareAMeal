@@ -1,5 +1,7 @@
 package com.lakens.shareameal.domain;
 
+import java.util.List;
+
 public class Meal {
     private int id;
     private String name;
@@ -14,6 +16,7 @@ public class Meal {
     private String imageUrl;
     private String allergenes;
     private Cook cook;
+    private List<Meal> results = null;
 
     public Meal(String name, String description, String price, String imageUrl, int id, boolean isVega, boolean isVegan, String serveDate, String allergenes, Cook cook, boolean isToTakeHome, boolean isActive) {
         this.id = id;
@@ -78,4 +81,8 @@ public class Meal {
     }
 
     public Cook getCook() { return cook; }
+
+    public List<Meal> getResults() {
+        return results;
+    }
 }
